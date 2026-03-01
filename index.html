@@ -20,7 +20,7 @@
             padding: 3rem 1rem;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px; /* ตรงนี้คือตัวกำหนดขนาดความกว้างรวม ถ้าอยากให้เล็กลง ลองเปลี่ยนเป็น 800px หรือ 700px */
             margin: auto;
             padding: 2rem;
         }
@@ -43,11 +43,14 @@
         }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
             height: 0;
             overflow: hidden;
             border-radius: 8px;
             margin-top: 15px;
+            /* ถ้าอยากจำกัดขนาดวิดีโอไม่ให้ใหญ่เกินไปแม้หน้าจอจะกว้าง สามารถเพิ่ม 2 บรรทัดล่างนี้ได้ */
+            max-width: 600px; */
+            margin-left: auto; margin-right: auto; */
         }
         .video-container iframe {
             position: absolute;
@@ -56,6 +59,29 @@
             width: 100%;
             height: 100%;
             border: 0;
+        }
+        /* CSS สำหรับส่วนรูปภาพผลงาน */
+        .gallery-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* จัดเรียงอัตโนมัติ ให้อย่างน้อยกว้าง 250px */
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease; /* เพิ่มเอฟเฟกต์ตอนเอาเมาส์ชี้ */
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.05); /* ให้รูปขยายขึ้นนิดนึงตอนชี้เมาส์ */
         }
     </style>
 </head>
@@ -75,10 +101,8 @@
                 <span class="tech-tag">Unity</span>
                 <span class="tech-tag">C#</span>
             </div>
-            
-            <p><strong>หน้าที่รับผิดชอบ:</strong> เขียนระบบการควบคุมเเละระบบเกมเพลย์ภายในเกม, ออกแบบแผนที่เเละอุปสรรค </p>
-            <p><strong>รายละเอียด:</strong> เกม 2D Ball Adventure ที่ผู้เล่นจะได้ควบคุมบอลเพื่อเก็บเหรียญเเละกุญเเจเพื่อผ่านด่านต่อไปเเละหลบสิ่งกีดขวางภายในด่าน </p>
-            
+            <p><strong>หน้าที่รับผิดชอบ:</strong> เขียนระบบการควบคุมเเละระบบเกมเพลย์ภายในเกม, ออกแบบแผนที่เเละอุปสรรค</p>
+            <p><strong>รายละเอียด:</strong> เกม 2D Ball Adventure ที่ผู้เล่นจะได้ควบคุมบอลเพื่อเก็บเหรียญเเละกุญเเจเพื่อผ่านด่านต่อไปเเละหลบสิ่งกีดขวางภายในด่าน</p>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/52CTJadqZIY?si=piNlBCU1D1A8tzba" allowfullscreen></iframe>
             </div>
@@ -91,42 +115,47 @@
                 <span class="tech-tag">C#</span>
             </div>
             <p><strong>หน้าที่รับผิดชอบ:</strong> เขียนระบบเกมเพลย์ พัซเซิลเเละระบบศัตรูในเกม, ออกเเบบแผนที่</p>
-            <p><strong>รายละเอียด:</strong> เกม Horror Puzzle ผู้เล่นจะได้รับบทเป็นบุคคลปริศนาที่มาติดอยู่ในโรงพยาบาลร้างเเละต้องหลบหนีคนไข้โรคจิตที่ค่อยจะเข้ามาทำร้ายโดยหารหัส 4 ตัวเพื่อเปิดประตูหนีออกจากสถานที่เเห่งนี้</p>
-            
+            <p><strong>รายละเอียด:</strong> เกม Horror Puzzle ผู้เล่นจะได้รับบทเป็นบุคคลปริศนาที่มาติดอยู่ในโรงพยาบาลร้างเเละต้องหลบหนีคนไข้โรคจิตที่คอยจะเข้ามาทำร้ายโดยหารหัส 4 ตัวเพื่อเปิดประตูหนีออกจากสถานที่เเห่งนี้</p>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/Uy1KhhH0XYQ?si=q97xJfoPSvVJT3tc" allowfullscreen></iframe>
             </div>
         </div>
         
-        </div>
- <div class="project-card">
+        <div class="project-card">
             <h3>โปรเจกต์ผลงานคู่เกมไฟนอล Unknown Knight</h3>
             <div>
                 <span class="tech-tag">Unity</span>
                 <span class="tech-tag">C#</span>
             </div>
-            <p><strong>หน้าที่รับผิดชอบ:</strong> เป็นงานเกมคู่ หน้าที่คือ ระบบไดอาลอคที่สนทนากับ NPC ระบบล็อคเป้าศัตรูเเละจำกัดการเข้าโจมตีผู้เล่น ระบบฮีลเพิ่มเลือดให้กับผู้เล่น การเก็บไอเทม กุญเเจเพื่อผ่านด่าน </p>
-            <p><strong>รายละเอียด:</strong> เกม Unknown Knight เป็นเกมที่ผู้เล่นจะได้รับบทเป็นอัศวินที่ลืมตัวตนของตัวเองจากอุบัติเหตุต่อสู้กับมอนสเตอร์เเละต้องหาทางออกจากดันเจี้ยนเเละต่อสู้กับมอนสเตอร์ บอสของเกมเพื่อจบเกม </p>
-            
+            <p><strong>หน้าที่รับผิดชอบ:</strong> เป็นงานเกมคู่ หน้าที่คือ ระบบไดอาลอคที่สนทนากับ NPC ระบบล็อคเป้าศัตรูเเละจำกัดการเข้าโจมตีผู้เล่น ระบบฮีลเพิ่มเลือดให้กับผู้เล่น การเก็บไอเทม กุญเเจเพื่อผ่านด่าน</p>
+            <p><strong>รายละเอียด:</strong> เกม Unknown Knight เป็นเกมที่ผู้เล่นจะได้รับบทเป็นอัศวินที่ลืมตัวตนของตัวเองจากอุบัติเหตุต่อสู้กับมอนสเตอร์เเละต้องหาทางออกจากดันเจี้ยนเเละต่อสู้กับมอนสเตอร์ บอสของเกมเพื่อจบเกม</p>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/Jb6T9YgOw3Q?si=ovnlV4bKDj4w8kty" allowfullscreen></iframe>
             </div>
         </div>
 
-        </div>
- <div class="project-card">
+        <div class="project-card">
             <h3>โปรเจกต์ผลงานกลุ่มคลิป After Effect มิวสิควิดีโอเพลง</h3>
             <div>
                 <span class="tech-tag">After Effect</span>
                 <span class="tech-tag">Photoshop</span>
             </div>
-            <p><strong>หน้าที่รับผิดชอบ:</strong> รับหน้าที่ทำฉากตอนอยู่บนรถไฟโดยการใส่การขยับให้ตัวละคร ฉากพื้นหลังเเละใส่เอฟเฟคสี ภาพให้โทนเข้ากับมิวสิควิดีโอเพลง </p>
-            <p><strong>รายละเอียด:</strong> เป็นผลงานกลุ่มที่ทำฉากมิวสิควิดีโอเพลง หลุดโลก โดยให้ตีโจทย์จากเนื้อเพลงเเละสร้างเป็นอนิเมชั่นโดยใช้โปรแกรม After Effect จากที่ได้เรียนมาในคลาสเรียน </p>
-            
+            <p><strong>หน้าที่รับผิดชอบ:</strong> รับหน้าที่ทำฉากตอนอยู่บนรถไฟโดยการใส่การขยับให้ตัวละคร ฉากพื้นหลังเเละใส่เอฟเฟคสี ภาพให้โทนเข้ากับมิวสิควิดีโอเพลง</p>
+            <p><strong>รายละเอียด:</strong> เป็นผลงานกลุ่มที่ทำฉากมิวสิควิดีโอเพลง หลุดโลก โดยให้ตีโจทย์จากเนื้อเพลงเเละสร้างเป็นอนิเมชั่นโดยใช้โปรแกรม After Effect จากที่ได้เรียนมาในคลาสเรียน</p>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/G4IXdNgN-Z4?si=8oXTubQm4wR3-IQu" allowfullscreen></iframe>
             </div>
         </div>
-    
-</body>
+
+        <div class="gallery-section">
+            <h2>ผลงานภาพอื่นๆ (Artworks & Screenshots)</h2>
+            <div class="gallery-grid">
+                <img src="image1.jpg" alt="ผลงานที่ 1">
+                <img src="image2.jpg" alt="ผลงานที่ 2">
+                <img src="image3.jpg" alt="ผลงานที่ 3">
+                <img src="image4.jpg" alt="ผลงานที่ 4">
+            </div>
+        </div>
+
+    </div> </body>
 </html>
